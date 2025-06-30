@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import WeatherWidget from '@/components/weather/WeatherWidget';
-import SearchBar from '@/components/weather/SearchBar';
+import SearchBar from '@/components/common/SearchBar';
 import { WeatherWidget as WeatherWidgetType } from '@/types/weather';
 import { getCurrentWeather, getForecast } from '@/services/weatherService';
 import { transformCurrentWeather, transformHourlyForecast, transformDailyForecast } from '@/services/weatherDataTransformer';
