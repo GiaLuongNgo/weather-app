@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import DailyForecast from '../DailyForecast';
-import { DailyForecast as DailyForecastType } from '@/types/weather';
+import { DailyForecast as DailyForecastType } from '../../../types/weather';
 
 // Mock the WeatherIcon component
 jest.mock('../WeatherIcon', () => {

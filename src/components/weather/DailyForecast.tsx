@@ -30,7 +30,7 @@ export default function DailyForecast({
             aria-label="Select number of forecast days"
             data-testid="forecast-days-select"
           >
-            {[1, 2, 3, 4, 5, 6, 7].map(days => (
+            {[1, 2, 3, 4, 5, 6].map(days => (
               <option key={days} value={days} className="text-black">
                 {days}d
               </option>

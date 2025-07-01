@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import CurrentWeather from '../CurrentWeather';
-import { WeatherData } from '@/types/weather';
+import { WeatherData } from '../../../types/weather';
 
 // Mock the WeatherIcon component
 jest.mock('../WeatherIcon', () => {
