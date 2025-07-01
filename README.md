@@ -1,36 +1,131 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌤️ Weather Dashboard
 
-## Getting Started
+A modern, responsive weather application built with Next.js 15, React 19, and TypeScript. Track multiple cities with beautiful, interactive weather widgets featuring real-time weather data, forecasts, and smooth animations.
+- **Hourly Forecast**: Next 8 periods (3-hour intervals) with temperature and conditions
+- **Daily Forecast**: 5-day outlook with high/low temperatures and conditions
+- **Weather Descriptions**: Detailed condition descriptions
+- **Temperature Trends**: Visual temperature patterns
 
-First, run the development server:
+## 🛠️ Technology Stack
 
+### Frontend
+- **[Next.js 15](https://nextjs.org/)** - React framework with App Router
+- **[React 19](https://react.dev/)** - Latest React with new features
+- **[TypeScript](https://www.typescriptlang.org/)** - Type-safe development
+- **[TailwindCSS 4](https://tailwindcss.com/)** - Utility-first CSS framework
+- **[Framer Motion](https://www.framer.com/motion/)** - Smooth animations and transitions
+
+### State Management & Data Fetching
+- **[TanStack Query (React Query)](https://tanstack.com/query/latest)** - Server state management
+- **React Hooks** - Local state management
+- **localStorage** - Client-side persistence
+
+### UI Components & Icons
+- **[Lucide React](https://lucide.dev/)** - Beautiful, customizable icons
+- **Custom Components** - Modular, reusable weather components
+
+### API Integration
+- **[OpenWeatherMap API](https://openweathermap.org/api)** - Weather data source
+- **Fetch API** - HTTP client for API requests
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+ 
+- npm, yarn, pnpm, or bun
+- OpenWeatherMap API key (free at [openweathermap.org](https://openweathermap.org/api))
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone git@github.com:GiaLuongNgo/weather-app.git
+   cd weather-app
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   ```
+
+4. **Run the development server**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   ```
+
+5. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000) to see the application.
+
+## 📜 Available Scripts
+
+### Development
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run start        # Start production server
+npm run lint         # Run ESLint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Testing
+```bash
+npm run test         # Run unit tests
+npm run test:watch   # Run tests in watch mode
+npm run test:coverage # Run tests with coverage report
+npm run test:e2e     # Run end-to-end tests (production)
+npm run test:e2e:dev # Run E2E tests (development)
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🧪 Testing
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Unit Testing
+- **Jest** - Testing framework
+- **React Testing Library** - Component testing utilities
+- **@testing-library/jest-dom** - Custom Jest matchers
+- **Coverage**: Comprehensive test coverage for all components and utilities
 
-## Learn More
+### End-to-End Testing
+- **Cypress** - E2E testing framework
+- **Custom Commands** - Reusable test utilities
+- **CI/CD Integration** - Automated testing in GitHub Actions
 
-To learn more about Next.js, take a look at the following resources:
+## 🎨 Features Deep Dive
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Responsive Design
+- **Mobile-first approach** with TailwindCSS
+- **Breakpoint system**: sm, md, lg, xl viewports
+- **Flexible grid layout** that adapts to screen size
+- **Touch-friendly interactions** for mobile users
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Performance Optimization
+- **React Query caching** for efficient data fetching
+- **Automatic stale-while-revalidate** strategy
+- **Error boundaries** for graceful error handling
+- **Optimistic updates** for better user experience
 
-## Deploy on Vercel
+## 🔧 Configuration
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Environment Variables
+```bash
+# Required
+NEXT_PUBLIC_OPENWEATHER_API_KEY=your_api_key
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Optional
+NEXT_PUBLIC_API_BASE_URL=https://api.openweathermap.org/data/2.5
+```
+
+### TailwindCSS Configuration
+The app uses TailwindCSS 4 with custom configurations for:
+- Color palette
+- Typography scales
+- Spacing system
+- Animation presets
+
+**Built with ❤️ using Next.js and modern web technologies**

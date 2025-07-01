@@ -11,7 +11,6 @@ export const weatherKeys = {
   locations: (query: string) => [...weatherKeys.all, 'locations', query] as const,
 };
 
-// Hook for fetching current weather data
 export function useCurrentWeather(city: string) {
   return useQuery({
     queryKey: weatherKeys.current(city),
@@ -20,11 +19,10 @@ export function useCurrentWeather(city: string) {
       return transformCurrentWeather(response);
     },
     enabled: !!city,
-    staleTime: 5 * 60 * 1000, // 5 minutes
+    staleTime: 5 * 60 * 1000,
   });
 }
 
-// Hook for fetching forecast data
 export function useForecast(city: string) {
   return useQuery({
     queryKey: weatherKeys.forecast(city),
@@ -36,11 +34,10 @@ export function useForecast(city: string) {
       };
     },
     enabled: !!city,
-    staleTime: 5 * 60 * 1000, // 5 minutes
+    staleTime: 5 * 60 * 1000,
   });
 }
 
-// Hook for searching locations with debouncing
 export function useLocationSearch(query: string) {
   return useQuery({
     queryKey: weatherKeys.locations(query),
@@ -61,7 +58,7 @@ export function useLocationSearch(query: string) {
         .slice(0, 5);
     },
     enabled: !!query.trim() && query.length >= 2,
-    staleTime: 10 * 60 * 1000, // 10 minutes - locations don't change often
+    staleTime: 10 * 60 * 1000,
   });
 }
 

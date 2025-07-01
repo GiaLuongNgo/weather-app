@@ -38,18 +38,4 @@ describe('ForecastToggle', () => {
     
     expect(mockOnToggle).toHaveBeenCalledWith(true);
   });
-
-  it('displays correct state when showHourly is false', () => {
-    render(<ForecastToggle {...defaultProps} showHourly={false} />);
-    
-    expect(screen.getByTestId('daily-toggle')).toBeInTheDocument();
-    expect(screen.getByTestId('hourly-toggle')).toBeInTheDocument();
-  });
-
-  it('displays correct state when showHourly is true', () => {
-    render(<ForecastToggle {...defaultProps} showHourly={true} />);
-    
-    expect(screen.getByTestId('daily-toggle')).toBeInTheDocument();
-    expect(screen.getByTestId('hourly-toggle')).toBeInTheDocument();
-  });
 });

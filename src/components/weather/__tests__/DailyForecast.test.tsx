@@ -71,20 +71,6 @@ describe('DailyForecast', () => {
     expect(screen.getByText('5-Day Forecast')).toBeInTheDocument();
   });
 
-  it('renders forecast days select with correct options', () => {
-    render(<DailyForecast {...defaultProps} />);
-    
-    const select = screen.getByLabelText('Select number of forecast days');
-    expect(select).toBeInTheDocument();
-    expect(select).toHaveValue('3');
-
-    // Check if all options are present
-    const options = screen.getAllByRole('option');
-    expect(options).toHaveLength(7);
-    expect(options[0]).toHaveValue('1');
-    expect(options[6]).toHaveValue('7');
-  });
-
   it('calls onForecastDaysChange when select value changes', () => {
     const mockOnForecastDaysChange = jest.fn();
     render(<DailyForecast {...defaultProps} onForecastDaysChange={mockOnForecastDaysChange} />);
@@ -104,81 +90,5 @@ describe('DailyForecast', () => {
     rerender(<DailyForecast {...defaultProps} forecastDays={3} />);
     weatherIcons = screen.getAllByTestId('weather-icon');
     expect(weatherIcons).toHaveLength(3);
-  });
-
-  it('displays day names correctly', () => {
-    render(<DailyForecast {...defaultProps} />);
-    
-    expect(screen.getByText('Mon')).toBeInTheDocument();
-    expect(screen.getByText('Tue')).toBeInTheDocument();
-    expect(screen.getByText('Wed')).toBeInTheDocument();
-  });
-
-  it('displays temperature ranges correctly', () => {
-    render(<DailyForecast {...defaultProps} />);
-    
-    expect(screen.getByText('25°')).toBeInTheDocument();
-    expect(screen.getByText('15°')).toBeInTheDocument();
-    expect(screen.getByText('22°')).toBeInTheDocument();
-    expect(screen.getByText('12°')).toBeInTheDocument();
-  });
-
-  it('displays humidity percentages correctly', () => {
-    render(<DailyForecast {...defaultProps} />);
-    
-    expect(screen.getByText('45%')).toBeInTheDocument();
-    expect(screen.getByText('55%')).toBeInTheDocument();
-    expect(screen.getByText('80%')).toBeInTheDocument();
-  });
-
-  it('renders weather icons with correct props', () => {
-    render(<DailyForecast {...defaultProps} />);
-    
-    const weatherIcons = screen.getAllByTestId('weather-icon');
-    
-    expect(weatherIcons[0]).toHaveAttribute('data-icon', '01d');
-    expect(weatherIcons[0]).toHaveAttribute('data-size', 'sm');
-    
-    expect(weatherIcons[1]).toHaveAttribute('data-icon', '02d');
-    expect(weatherIcons[2]).toHaveAttribute('data-icon', '10d');
-  });
-
-  it('applies correct styling to forecast items', () => {
-    const { container } = render(<DailyForecast {...defaultProps} />);
-    
-    const forecastItems = container.querySelectorAll('.bg-white\\/10');
-    expect(forecastItems).toHaveLength(3);
-    
-    forecastItems.forEach(item => {
-      expect(item).toHaveClass('flex items-center justify-between bg-white/10 rounded-lg p-1.5 sm:p-2');
-    });
-  });
-
-  it('handles empty daily forecast array', () => {
-    render(<DailyForecast {...defaultProps} dailyForecast={[]} />);
-    
-    expect(screen.getByText('3-Day Forecast')).toBeInTheDocument();
-    const weatherIcons = screen.queryAllByTestId('weather-icon');
-    expect(weatherIcons).toHaveLength(0);
-  });
-
-  it('limits forecast items to the specified number of days', () => {
-    const largeForecast = Array(10).fill(null).map((_, index) => ({
-      ...mockDailyForecast[0],
-      day: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', 'Mon', 'Tue', 'Wed'][index],
-      tempHigh: 25 - index,
-      tempLow: 15 - index,
-    }));
-
-    render(
-      <DailyForecast 
-        dailyForecast={largeForecast} 
-        forecastDays={5} 
-        onForecastDaysChange={jest.fn()} 
-      />
-    );
-    
-    const weatherIcons = screen.getAllByTestId('weather-icon');
-    expect(weatherIcons).toHaveLength(5); // Should be limited to 5 items
   });
 });

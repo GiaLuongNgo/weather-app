@@ -9,7 +9,9 @@
     "lint": "next lint",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "test:e2e": "start-server-and-test start :3000 'cypress run --e2e'",
+    "test:e2e:dev": "start-server-and-test dev :3000 'cypress open --e2e'"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.81.5",
@@ -30,10 +32,12 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-jest": "^30.0.2",
+    "cypress": "^14.5.0",
     "eslint": "^9",
     "eslint-config-next": "15.3.4",
     "jest": "^30.0.3",
     "jest-environment-jsdom": "^30.0.2",
+    "start-server-and-test": "^2.0.12",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
